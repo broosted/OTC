@@ -10,3 +10,9 @@ span {
 .ion-ios-star-half {
     color: #c6b709;
 }
+
+.container {
+    width: 300px;
+    margin-left: 0px;
+    padding-left: 0px;
+}

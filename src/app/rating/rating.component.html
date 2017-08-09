@@ -2,16 +2,6 @@
 
 <div class="container">
 
-
-    <span class="ion-ios-star"></span>
-    <span class="ion-ios-star-outline"></span>
-    <span class="ion-ios-star-outline"></span>
-    <span class="ion-ios-star-half"></span>
-    <span class="ion-ios-star-outline"></span>
-
-
-
-
-
+    <span *ngFor="let item of values; let num = index " class="{{item.class_str}}" (click)="indexClick($event,item)"></span>
 
 </div>

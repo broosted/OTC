@@ -1,0 +1,39 @@
+{
+    "Medicines": [{
+            "medi_id": "1",
+            "medi_img_url": "",
+            "medi_description": "",
+            "customers": [{
+                    "customer_id": "1",
+                    "customer_name": "Rajesh",
+                    "customer_rating": "4",
+                    "customer_review": "this is awesome"
+                },
+                {
+                    "customer_id": "2",
+                    "customer_name": "John",
+                    "customer_rating": "3",
+                    "customer_review": "not recommended"
+                }
+            ]
+        },
+        {
+            "medi_id": "1",
+            "medi_img_url": "",
+            "medi_description": "",
+            "customers": [{
+                    "customer_id": "1",
+                    "customer_name": "Rajesh",
+                    "customer_rating": "4",
+                    "customer_review": "this is awesome"
+                },
+                {
+                    "customer_id": "2",
+                    "customer_name": "John",
+                    "customer_rating": "3",
+                    "customer_review": "not recommended"
+                }
+            ]
+        }
+    ]
+}
