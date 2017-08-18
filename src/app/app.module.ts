@@ -9,6 +9,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { MediListComponent } from './medi-list/medi-list.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MediDetailComponent } from './medi-detail/medi-detail.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -39,7 +41,8 @@ const appRoutes: Routes = [
      RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
-    )
+    ),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
