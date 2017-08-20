@@ -19,7 +19,57 @@
 
     </div>
     <hr>
-    <h3>User Reviews</h3>
+    <h3>User Reviews:
+        <a onclick="document.getElementById('revId').style.display='block'" class="btn btn-info">Post a Review</a>
+    </h3>
+    <hr>
+
+    <div id="revId" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="document.getElementById('revId').style.display='none'">&times;</button>
+                    <h4 class="modal-title">Post a Review</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <div class="form-group">
+                                <label for="inputName" class="col-lg-2 control-label">Name</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" id="inputName" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputRating" class="col-lg-2 control-label">Rating</label>
+                                <div class="col-lg-10">
+                                    <app-rating></app-rating>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="revArea" class="col-lg-2 control-label">Review</label>
+                                <div class="col-lg-10">
+                                    <textarea class="form-control" rows="4" id="revArea"></textarea>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </form>
+
+
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <button type="reset" class="btn btn-default">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <ul class="list-group">
         <li class="list-group-item well">
             <h5>By Frank Updated 2010-09-30</h5>

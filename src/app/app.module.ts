@@ -10,6 +10,7 @@ import { MediListComponent } from './medi-list/medi-list.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MediDetailComponent } from './medi-detail/medi-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserReviewComponent } from './user-review/user-review.component';
 
 
 
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   
   
   { path: 'medi-detail', component: MediDetailComponent },
+  { path: 'user-review', component: UserReviewComponent},
   {
     path: '', component: MediListComponent
   },
@@ -33,7 +35,8 @@ const appRoutes: Routes = [
     RatingComponent,
     MediListComponent,
     MediDetailComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    UserReviewComponent
   ],
   imports: [
     BrowserModule,
