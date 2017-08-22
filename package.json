@@ -25,9 +25,10 @@
         "@angular/router": "^4.0.0",
         "angular-star-rating": "^3.0.3",
         "core-js": "^2.4.1",
+        "mongoose": "4.11.7",
+        "mongoose-sequence-plugin": "^1.0.5",
         "rxjs": "^5.1.0",
-        "zone.js": "^0.8.4",
-        "mongoose": "4.11.7"
+        "zone.js": "^0.8.4"
     },
     "devDependencies": {
         "@angular/cli": "1.1.2",

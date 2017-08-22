@@ -11,6 +11,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MediDetailComponent } from './medi-detail/medi-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserReviewComponent } from './user-review/user-review.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -45,7 +46,9 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

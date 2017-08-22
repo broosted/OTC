@@ -1,4 +1,4 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit ,Input, Output, EventEmitter} from '@angular/core';
 import {Rating} from './rating.modle';
 
 
@@ -13,7 +13,9 @@ export class RatingComponent implements OnInit {
 
   values : Rating[];
   startypes :string[];
-  index: number; //this will be the index of the value
+  @Input() index: number; //this will be the index of the value
+  @Input() readOnly: boolean;
+  @Output() selectedIndex = new EventEmitter<number>();
 
 
                                        
@@ -25,35 +27,45 @@ export class RatingComponent implements OnInit {
     ];
     
     let b = [
-      { id: 1, class_str: 'ion-ios-star-outline'}
-      ,{id: 2,class_str: 'ion-ios-star-outline'},
+      { id: 1, class_str: 'ion-ios-star-outline'},
+      {id: 2,class_str: 'ion-ios-star-outline'},
       {id: 3, class_str: 'ion-ios-star-outline'},
       {id:4,class_str:'ion-ios-star-outline'},
       {id:5,class_str:'ion-ios-star-outline'}
     ];
 
     this.values = b;
+    
 
   }
 
   ngOnInit() {
+    if(this.readOnly === true) {
+      this.indexClick(event,this.index);
+    }
   }
 
 
-  indexClick(event, item: Rating): void{
+  indexClick(event, item: number): void{
 
-    for(let i =0;i<this.values.length;i++){
+     
+    
+      for(let i =0;i<this.values.length;i++){
       this.values[i].class_str = 'ion-ios-star-outline';
     }
     
     
-    this.index = item.id;
+    if(this.readOnly === false) {this.index = item;}
     
+
     for(let i= this.index-1 ; i >= 0;i--){
       this.values[i].class_str = 'ion-ios-star';
 
     }
 
+    this.selectedIndex.emit(item);
+ 
+  
   }
 
 

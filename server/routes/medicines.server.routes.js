@@ -1,11 +1,11 @@
 const medicines = require('../controllers/medicines.server.controller');
 
 module.exports = function(app) {
-    app.route('/medicines')
+    app.route('/api/medicines')
         .post(medicines.create)
         .get(medicines.list);
 
-    app.route('/medicines/:medicineId')
+    app.route('/api/medicines/:medicineId')
         .get(medicines.read).put(medicines.update)
         .delete(medicines.delete);
 

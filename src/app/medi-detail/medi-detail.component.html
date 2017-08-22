@@ -34,22 +34,22 @@
                 <div class="modal-body">
                     <form class="form-horizontal">
                         <fieldset>
-                            <div class="form-group">
+                            <div class="form-group" [formGroup]="myReviewForm">
                                 <label for="inputName" class="col-lg-2 control-label">Name</label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="inputName" placeholder="Name">
+                                    <input type="text" class="form-control" id="inputName" placeholder="Name" formControlName="customer_name">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" [formGroup]="myReviewForm">
                                 <label for="inputRating" class="col-lg-2 control-label">Rating</label>
                                 <div class="col-lg-10">
-                                    <app-rating></app-rating>
+                                    <app-rating [readOnly]="false" (getRating)="getRating($event)"></app-rating>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" [formGroup]="myReviewForm">
                                 <label for="revArea" class="col-lg-2 control-label">Review</label>
                                 <div class="col-lg-10">
-                                    <textarea class="form-control" rows="4" id="revArea"></textarea>
+                                    <textarea class="form-control" rows="4" id="revArea" formControlName="customer_review"></textarea>
                                 </div>
                             </div>
 
@@ -70,46 +70,15 @@
         </div>
     </div>
 
+
+
     <ul class="list-group">
-        <li class="list-group-item well">
-            <h5>By Frank Updated 2010-09-30</h5>
-            <app-rating></app-rating>
+        <li class="list-group-item well" *ngFor="let item of list; let num = index">
+            <h5>By {{item.customer_name}} Updated 2010-09-30</h5>
+            <app-rating [readOnly]="readOnly" index="{{item.customer_rating}}"></app-rating>
+            <p>{{item.customer_review}}</p>
+        </li>
 
-
-
-
-            <p>Awesome product I loved it and it was wonderfull</p>
-        </li>
-        <li class="list-group-item well">
-            <h5>By Sara Updated 2010-09-30</h5>
-            <app-rating></app-rating>
-            <p>this product seems to be fine</p>
-        </li>
-        <li class="list-group-item well">
-            <h5>By Randy Updated 2010-09-30</h5>
-            <app-rating></app-rating>
-            <p>this product seems to be fine</p>
-        </li>
-        <li class="list-group-item well">
-            <h5>By Frank Updated 2010-09-30</h5>
-            <app-rating></app-rating>
-            <p>this product seems to be fine</p>
-        </li>
-        <li class="list-group-item well">
-            <h5>By Melony Updated 2010-09-30</h5>
-            <app-rating></app-rating>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio unde ullam, inventore ipsa quis esse quo quisquam. Nesciunt aliquid, fugit similique, quidem, odit autem repellendus atque quis, dolorum ipsum accusamus.</p>
-        </li>
-        <li class="list-group-item well">
-            <h5>By Mary Updated 2010-09-30</h5>
-            <app-rating></app-rating>
-            <p>this product seems to be fine</p>
-        </li>
-        <li class="list-group-item well">
-            <h5>By Frank Updated 2010-09-30</h5>
-            <app-rating></app-rating>
-            <p>this product seems to be fine</p>
-        </li>
     </ul>
 
 </div>
