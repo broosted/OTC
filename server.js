@@ -4,7 +4,7 @@ const configureExpress = require('./express');
 
 const db = configureMongoose();
 const app = configureExpress();
-app.listen(3000);
+app.listen(8080);
 module.exports = app;
 
-console.log('Server running at http://localhost:3000/');
+console.log('Server running at http://localhost:8080/');
