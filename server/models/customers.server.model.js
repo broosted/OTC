@@ -4,7 +4,7 @@ var sequenceGenerator = require('mongoose-sequence-plugin');
 
 
 const CustSchema = new Schema({
-    customer_id: { type: Number, required: true },
+    customer_id: { type: String, required: true },
     customer_name: String,
     customer_rating: Number,
     customer_review: String

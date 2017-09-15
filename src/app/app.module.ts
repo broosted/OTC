@@ -12,6 +12,9 @@ import { MediDetailComponent } from './medi-detail/medi-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserReviewComponent } from './user-review/user-review.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CustomerService} from './exposed-services/customers.service';
+import { MedicineService } from './exposed-services/medicines.service';
+
 
 
 
@@ -50,7 +53,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ CustomerService, MedicineService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
