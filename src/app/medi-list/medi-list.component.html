@@ -1,11 +1,22 @@
 <div class="container">
-    <div class="row">
-        <div class="col-sm-4 col-md-4">
+
+    <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" #data>
+        </div>
+        <button type="submit" class="btn btn-default" (click)="filterData(data.value)">Submit</button>
+    </form>
+</div>
+
+<div class="container">
+
+    <div *ngIf="list$ | async as list">
+        <div class="col-sm-4 col-md-4" *ngFor="let item of list; let num = index">
             <div class="post">
                 <div class="post-img-content">
-                    <img src="https://target.scene7.com/is/image/Target/14827710?wid=520&hei=520&fmt=pjpeg" class="img-responsive" />
+                    <img src="{{item.medi_img_url}}" class="img-responsive" />
                     <span class="post-title"><b>Make a Image Blur Effects With</b><br />
-                        <b>CSS3 Blur</b></span>
+                                <b>CSS3 Blur</b></span>
                 </div>
                 <div class="content">
                     <div class="author">
@@ -16,132 +27,11 @@
                         <app-rating [readOnly]="false"></app-rating>
                     </div>
                     <div>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        <p>{{item.medi_description}}</p>
+
                     </div>
                     <div>
                         <a routerLink="/medi-detail" routerLinkActive="active" class="btn btn-warning btn-sm">Check Reviews</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-            <div class="post">
-                <div class="post-img-content">
-                    <img src="https://images.iacpublishinglabs.com/reference-production-images/question/aq/700px-394px/advil-contain-aspirin_becfc50fe4587811.jpg" class="img-responsive" />
-                    <span class="post-title"><b>Make a Image Blur Effects With</b><br />
-                        <b>CSS3 Blur</b></span>
-                </div>
-                <div class="content">
-                    <div class="author">
-                        By <b>Bhaumik</b> |
-                        <time datetime="2014-01-20">January 20th, 2014</time>
-                    </div>
-                    <div>
-                        <app-rating></app-rating>
-                    </div>
-                    <div>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    </div>
-                    <div>
-                        <a href="http://www.jquery2dotnet.com/2013/11/share-social-media-round-buttons.html" class="btn btn-primary btn-sm">Check Reviews</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-            <div class="post">
-                <div class="post-img-content">
-                    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTk-T-WEzIglZsPncX6qTww3WEs92rUngI7WYrcNLr_L6QbtEP-l2cZALQsVmfkTT3M63tnJNg&usqp=CAY" class="img-responsive" />
-                    <span class="post-title"><b>Make a Image Blur Effects With</b><br />
-                        <b>CSS3 Blur</b></span>
-                </div>
-                <div class="content">
-                    <div class="author">
-                        By <b>Bhaumik</b> |
-                        <time datetime="2014-01-20">January 20th, 2014</time>
-                    </div>
-                    <div>
-                        <app-rating></app-rating>
-                    </div>
-                    <div>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    </div>
-                    <div>
-                        <a href="http://www.jquery2dotnet.com/2013/07/cool-social-sharing-button-using-css3.html" class="btn btn-success btn-sm">Check Reviews</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4 col-md-4">
-            <div class="post">
-                <div class="post-img-content">
-                    <img src="https://target.scene7.com/is/image/Target/13404451?wid=520&hei=520&fmt=pjpeg" class="img-responsive" />
-                    <span class="post-title"><b>Make a Image Blur Effects With</b><br />
-                        <b>CSS3 Blur</b></span>
-                </div>
-                <div class="content">
-                    <div class="author">
-                        By <b>Bhaumik</b> |
-                        <time datetime="2014-01-20">January 20th, 2014</time>
-                    </div>
-                    <div>
-                        <app-rating></app-rating>
-                    </div>
-                    <div>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    </div>
-                    <div>
-                        <a href="http://www.jquery2dotnet.com/2014/01/jquery-highlight-table-row-and-column.html" class="btn btn-warning btn-sm">Check Reviews</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-            <div class="post">
-                <div class="post-img-content">
-                    <img src="http://www.dencorub.com.au/wp-content/uploads/2016/04/Dencorub-Range.jpg" class="img-responsive" />
-                    <span class="post-title"><b>Make a Image Blur Effects With</b><br />
-                        <b>CSS3 Blur</b></span>
-                </div>
-                <div class="content">
-                    <div class="author">
-                        By <b>Bhaumik</b> |
-                        <time datetime="2014-01-20">January 20th, 2014</time>
-                    </div>
-                    <div>
-                        <app-rating></app-rating>
-                    </div>
-                    <div>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    </div>
-                    <div>
-                        <a href="http://www.jquery2dotnet.com/2013/11/share-social-media-round-buttons.html" class="btn btn-primary btn-sm">Check Reviews</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-            <div class="post">
-                <div class="post-img-content">
-                    <img src="https://www.marketpharmacy.com/1169-thickbox_default/stopain-spray-xtra-strength-4oz.jpg" class="img-responsive" />
-                    <span class="post-title"><b>Make a Image Blur Effects With</b><br />
-                        <b>CSS3 Blur</b></span>
-                </div>
-                <div class="content">
-                    <div class="author">
-                        By <b>Bhaumik</b> |
-                        <time datetime="2014-01-20">January 20th, 2014</time>
-                    </div>
-                    <div>
-                        <app-rating></app-rating>
-                    </div>
-                    <div>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    </div>
-                    <div>
-                        <a href="http://www.jquery2dotnet.com/2013/07/cool-social-sharing-button-using-css3.html" class="btn btn-success btn-sm">Check Reviews</a>
                     </div>
                 </div>
             </div>

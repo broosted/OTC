@@ -20,11 +20,11 @@ export class MediDetailComponent implements OnInit {
   readOnly = false;
   item: number;
   myReviewForm : FormGroup;
+  editItem: Customer;
 
 
-  constructor(private http: HttpClient,private fb: FormBuilder, private service: CustomerService) {
+  constructor(private fb: FormBuilder, private service: CustomerService) {
    this.myReviewForm = fb.group({
-
     customer_name: '',
     customer_rating: '',
     customer_review: ''
@@ -39,6 +39,7 @@ export class MediDetailComponent implements OnInit {
     this.readOnly = true;
     this.list$ = this.service.list();
 
+    this.editItem = new Customer('',0,'');
 
       }
     
@@ -50,9 +51,38 @@ export class MediDetailComponent implements OnInit {
 
       addReview(form: any){
         form.customer_rating = this.item;
-        this.list$  =  this.service.create(form);  
+        this.list$  =  this.service.create(form);
+        console.log(this.list$);
+        this.list$.subscribe();
       }
 
+      editReview(form: any){
+        form.customer_rating = this.editItem;
+        this.list$  =  this.service.update(form);
+        this.list$.subscribe();
 
+      }
+
+      editDisplay(item: Customer){
+        this.myReviewForm.setValue({
+          customer_name: item.customer_name,
+          customer_rating: item.customer_rating,
+          customer_review: item.customer_review
+        });
+        
+        this.editItem = item;
+        
+      }
+
+      removeReview(id: string)
+      {
+        this.list$ = this.service.delete(id);
+        this.list$.subscribe();
+      }
+
+      resetForm(){
+        this.myReviewForm.reset();
+      }
+    
 
 }

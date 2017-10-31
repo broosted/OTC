@@ -6,3 +6,13 @@ img {
     max-height: calc(100vh - 210px);
     overflow-y: auto;
 }
+
+.ion-edit {
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.ion-trash-a {
+    font-size: 30px;
+    cursor: pointer;
+}

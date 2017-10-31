@@ -12,7 +12,9 @@ const CustSchema = new Schema({
 
 CustSchema.plugin(sequenceGenerator, {
     field: 'customer_id',
-    startAt: '6'
+    startAt: '69',
+    prefix: 'MNH-',
+    maxSaveRetries: 2
 });
 
 mongoose.model('Customer', CustSchema);

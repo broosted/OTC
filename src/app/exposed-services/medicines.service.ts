@@ -16,11 +16,31 @@ export class MedicineService{
 
 
     list(): Observable<any> {
-        
+       
+
                 return this.http.get<Medicines[]>('/api/medicines');
         
             }
+    
+    filter(searchText: string): Observable<any> {
+      
+        return this.list().map(val => { 
+            const temp = val.filter( item =>  item.medi_description.search(searchText) !== -1);
+            return temp;
+        });
+    }
 
+    getAvgRating(): number {
+       let ag =  this.http.get<Medicines[]>('/api/medicines').subscribe(val => {
+            let sum = 0;
+            val.customers.forEach(element => {
+            sum += element.customer_rating;
+            });
+            let avg = sum / val.customers.length;   
+            return avg;
+        });
+        return ag;
+    }
     create( medicines: Medicines): Observable<any> {
          this.http.post<Medicines>('/api/medicines',{medicines});
          return this.list();

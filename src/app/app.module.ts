@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {MatGridListModule} from '@angular/material';
+import {MatCardModule} from '@angular/material';
+
+
 import { AppComponent } from './app.component';
 import { RatingComponent } from './rating/rating.component';
 
@@ -51,7 +55,9 @@ const appRoutes: Routes = [
     ),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [ CustomerService, MedicineService],
   bootstrap: [AppComponent]

@@ -1,14 +1,18 @@
-import { Component, OnInit ,Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit ,Input, Output, 
+  EventEmitter, OnChanges, SimpleChange, SimpleChanges} from '@angular/core';
 import {Rating} from './rating.modle';
-import { Observable } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
+import { RatingService} from '../exposed-services/rating.service';
 
 
 @Component({
   selector: 'app-rating',
   templateUrl: './rating.component.html',
-  styleUrls: ['./rating.component.css']
+  styleUrls: ['./rating.component.css'],
+  providers: [RatingService] //local provider,
+
 })
-export class RatingComponent implements OnInit {
+export class RatingComponent implements OnInit, OnChanges {
 
 
  
@@ -23,11 +27,17 @@ export class RatingComponent implements OnInit {
 
   ngOnInit() {
 
-    //this.rating = this.cleanup(this.rating);
+    //initial load of the ratings
     this.rating = this.generate(this.index);
+    
+    
     
   }
 
+  //important to monitor @input index whenever the value changes the representation changes
+  ngOnChanges(changes: SimpleChanges){
+    this.rating = this.generate(this.index);
+  }
   
   generate(item: number): Rating[]{
     

@@ -6,45 +6,34 @@ import { Customer } from '../medi-list/medi-customer.model';
 
 
 @Injectable()
-export class CustomerService{
+export class CustomerService {
 
-    constructor(private http: HttpClient){
+    constructor(private http: HttpClient) {
 
     }
 
     list(): Observable<any> {
-        
-                return this.http.get<Customer[]>('api/customers');
-        
-            }
+    return this.http.get<Customer[]>('api/customers');
+    }
 
     create( customer: Customer): Observable<any> {
-         this.http.post<Customer>('api/customers',customer).subscribe();
+         this.http.post<Customer>('api/customers', customer).subscribe();
          return this.list();
     }
-    
     update( customer: Customer): Observable<any> {
-    
-        let params = new HttpParams().set('customerId', customer.customer_id);
-        this.http.put<Customer>('api/customers/:customerId',{body: customer},{ params: params});
+   this.http.put<Customer>('api/customers/' + customer.customer_id, {body: customer}).subscribe();
         return this.list();
     }
 
-    delete (customer: Customer): Observable<any>{
-        
-                let params = new HttpParams().set('customerId', customer.customer_id);
-                 this.http.delete<Customer>('api/customers/:customerId',{ params: params});
+    delete (customer_id: string): Observable<any>{
+                 this.http.delete<Customer>('api/customers/'+customer_id).subscribe();
                  return this.list();
 
     }
-            
-    
-    findById(id : string): Observable<any> {
+    findById(id: string): Observable<any> {
         let params = new HttpParams().set('customerId', id);
-        return this.http.get<Customer>('api/customers/:customerId',{ params: params});
+        return this.http.get<Customer>('api/customers/:customerId', { params: params});
 
     }
-
-   
 
 }

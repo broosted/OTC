@@ -41,7 +41,7 @@ exports.customerByID = function(req, res, next, id) {
 };
 
 exports.update = function(req, res, next) {
-    Customer.findByIdAndUpdate(req.user.id, req.body, {
+    Customer.findByIdAndUpdate(req.customer.id, req.body, {
         'new': true
     }, (err, customer) => {
         if (err) {

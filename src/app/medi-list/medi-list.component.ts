@@ -1,8 +1,10 @@
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 
 
-
 import { Medicines } from './medi-item.model';
+import { MedicineService } from '../exposed-services/medicines.service';
 
 @Component({
   selector: 'app-medi-list',
@@ -11,19 +13,18 @@ import { Medicines } from './medi-item.model';
 })
 export class MediListComponent implements OnInit {
 
-  results: Medicines[];
-  constructor() { }
+  list$: Observable<Medicines[]>;
+  constructor(private service: MedicineService) { }
 
-  ngOnInit(): void {
-    /*
-    this.http.get('rating.json').subscribe(data => 
-      this.results = data.json());
-
-      for(let i =0;i<this.results.length;i++){
-        console.log(this.results[i]);
-      }
-*/
+  ngOnInit() {
+ 
+this.list$ = this.service.list();
 }
 
+filterData(searchText: string) {
+  
+  this.list$ = this.service.filter(searchText);
+ // this.service.filter(searchText).subscribe(element => console.log(element));
+}
 
 }
