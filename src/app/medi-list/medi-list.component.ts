@@ -18,7 +18,7 @@ export class MediListComponent implements OnInit {
 
   ngOnInit() {
  
-this.list$ = this.service.list();
+this.list$ = this.service.getAvgRating();
 }
 
 filterData(searchText: string) {

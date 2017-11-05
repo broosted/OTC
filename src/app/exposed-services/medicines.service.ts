@@ -16,8 +16,7 @@ export class MedicineService{
 
 
     list(): Observable<any> {
-       
-
+    
                 return this.http.get<Medicines[]>('/api/medicines');
         
             }
@@ -30,16 +29,22 @@ export class MedicineService{
         });
     }
 
-    getAvgRating(): number {
-       let ag =  this.http.get<Medicines[]>('/api/medicines').subscribe(val => {
+    getAvgRating(): Observable<any> {
+
+       return this.list().map(val => {
+        val.forEach(item => {
+
             let sum = 0;
-            val.customers.forEach(element => {
+            item.customers.forEach(element => {
             sum += element.customer_rating;
             });
-            let avg = sum / val.customers.length;   
-            return avg;
+            item.medi_avg_score = (Math.round(sum / item.customers.length)).toString();   
+        
+        })   
+       
+           return val;
         });
-        return ag;
+        
     }
     create( medicines: Medicines): Observable<any> {
          this.http.post<Medicines>('/api/medicines',{medicines});
@@ -62,9 +67,8 @@ export class MedicineService{
     }
              
     findById(id : string): Observable<any> {
-        let params = new HttpParams().set('medicineId', id);
-        return this.http.get<Medicines>('/api/medicines/:medicineId',{ params: params});
-
+   
+        return this.http.get<Medicines>('/api/medicines/'+id);
     }
 
 }

@@ -3,6 +3,6 @@
     height: 300px;
 }
 
-.post {
-    margin-bottom: 10px;
+.container {
+    margin: 1em auto 1em auto;
 }

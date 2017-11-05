@@ -1,40 +1,43 @@
 <div class="container">
 
-    <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search" #data>
+    <form>
+
+        <div class="input-group">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" #data>
+
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit" (click)="filterData(data.value)">Search</button>
         </div>
-        <button type="submit" class="btn btn-default" (click)="filterData(data.value)">Submit</button>
+
+
     </form>
+
 </div>
+
 
 <div class="container">
 
-    <div *ngIf="list$ | async as list">
-        <div class="col-sm-4 col-md-4" *ngFor="let item of list; let num = index">
-            <div class="post">
-                <div class="post-img-content">
-                    <img src="{{item.medi_img_url}}" class="img-responsive" />
-                    <span class="post-title"><b>Make a Image Blur Effects With</b><br />
-                                <b>CSS3 Blur</b></span>
-                </div>
-                <div class="content">
-                    <div class="author">
-                        By <b>Bhaumik</b> |
-                        <time datetime="2014-01-20">January 20th, 2014</time>
-                    </div>
-                    <div>
-                        <app-rating [readOnly]="false"></app-rating>
-                    </div>
-                    <div>
-                        <p>{{item.medi_description}}</p>
+    <div class="card-columns">
 
-                    </div>
-                    <div>
-                        <a routerLink="/medi-detail" routerLinkActive="active" class="btn btn-warning btn-sm">Check Reviews</a>
-                    </div>
+        <div class="card border-light" style="width:20rem;" *ngFor="let item of list$ | async; let num = index">
+            <img class="card-img-top" src="{{item.medi_img_url}}" alt="Card image cap">
+            <div class="card-body">
+                <span class="post-title"><b>Make a Image Blur Effects With</b><br />
+                    <b>CSS3 Blur</b></span>
+                <div class="author"> By <b>Bhaumik</b> |
+                    <time datetime="2014-01-20">January 20th, 2014</time>
+                </div>
+                <div>
+                    <app-rating [readOnly]="true" index="{{item.medi_avg_score}}"></app-rating>
+                </div>
+                <div>
+                    <p>{{item.medi_description}}</p>
+                </div>
+                <div>
+                    <a routerLink="/medi-detail/{{item._id}}" routerLinkActive="active" class="btn btn-warning btn-sm">Check Reviews</a>
                 </div>
             </div>
         </div>
+
     </div>
+
 </div>

@@ -1,0 +1,120 @@
+<br>
+<h3>User Reviews:
+    <a onclick="document.getElementById('revId').style.display='block'" (click)="resetForm()" class="btn btn-info">Post a Review</a>
+</h3>
+<br>
+
+<div id="revId" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Post a Review</h4>
+            </div>
+
+            <form class="form-horizontal" [formGroup]="myReviewForm" (ngSubmit)="addReview(myReviewForm.value)">
+                <div class="modal-body">
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="inputName" class="col-lg-2 control-label">Name</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputName" placeholder="Name" formControlName="customer_name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputRating" class="col-lg-2 control-label">Rating</label>
+                            <div class="col-lg-10">
+                                <app-rating [readOnly]="false" (ratingValue)="indexValue($event)"></app-rating>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="revArea" class="col-lg-2 control-label">Review</label>
+                            <div class="col-lg-10">
+                                <textarea class="form-control" rows="4" id="revArea" formControlName="customer_review"></textarea>
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <div class="form-horizontal">
+
+                        <button type="reset" class="btn btn-default" data-dismiss="modal" aria-hidden="true" onclick="document.getElementById('revId').style.display='none'" (click)="resetForm()">Cancel</button>
+                        <button type="submit" class="btn btn-primary" data-dismiss="modal" aria-hidden="true" onclick="document.getElementById('revId').style.display='none'">Submit</button>
+
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+<ul class="list-group" *ngIf="list$ | async as list">
+    <li class="list-group-item well" *ngFor="let item of list; let num = index">
+        <h5>By {{item.customer_name}} Updated 2010-09-30</h5>
+        <app-rating [readOnly]="true" index="{{item.customer_rating}}"></app-rating>
+        <p>{{item.customer_review}}</p>
+        <div style="text-align:end;letter-spacing:8px">
+            <span class="ion-edit" onclick="document.getElementById('revEditId').style.display='block'" (click)="editDisplay(item)"></span>
+            <span class="ion-trash-a" (click)="removeReview(item._id)"></span>
+        </div>
+    </li>
+
+</ul>
+
+
+
+<div id="revEditId" class="modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Post a Review</h4>
+            </div>
+
+            <form class="form-horizontal" [formGroup]="myReviewForm" (ngSubmit)="editReview(myReviewForm.value)">
+                <div class="modal-body">
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="inputName" class="col-lg-2 control-label">Name</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputName" placeholder="Name" formControlName="customer_name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputRating" class="col-lg-2 control-label">Rating</label>
+                            <div class="col-lg-10">
+                                <app-rating [readOnly]="false" (ratingValue)="indexValue($event)" index="{{editItem.customer_rating}}"></app-rating>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="revArea" class="col-lg-2 control-label">Review</label>
+                            <div class="col-lg-10">
+                                <textarea class="form-control" rows="4" id="revArea" formControlName="customer_review"></textarea>
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <div class="form-horizontal">
+
+                        <button type="reset" class="btn btn-default" data-dismiss="modal" aria-hidden="true" onclick="document.getElementById('revEditId').style.display='none'" (click)="resetForm()">Cancel</button>
+                        <button type="submit" class="btn btn-primary" data-dismiss="modal" aria-hidden="true" onclick="document.getElementById('revEditId').style.display='none'" (click)="editReview()">Submit</button>
+
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -1,34 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {MatGridListModule} from '@angular/material';
-import {MatCardModule} from '@angular/material';
 
 
 import { AppComponent } from './app.component';
 import { RatingComponent } from './rating/rating.component';
 
-import { StarRatingModule } from 'angular-star-rating';
 import { RouterModule, Routes } from '@angular/router';
 import { MediListComponent } from './medi-list/medi-list.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MediDetailComponent } from './medi-detail/medi-detail.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UserReviewComponent } from './user-review/user-review.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerService} from './exposed-services/customers.service';
 import { MedicineService } from './exposed-services/medicines.service';
 
 
-
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { MediDetailDetailsComponent } from './medi-detail-details/medi-detail-details.component';
+import { MediDetailReviewsComponent } from './medi-detail-reviews/medi-detail-reviews.component';
 
 
 
 const appRoutes: Routes = [
   
   
-  { path: 'medi-detail', component: MediDetailComponent },
-  { path: 'user-review', component: UserReviewComponent},
+  //{ path: 'medi-detail', component: MediDetailComponent },
+  { path: 'medi-detail/:id', component: MediDetailComponent ,
+  children: [
+    { path: '', redirectTo: 'reviews', pathMatch: 'full' },
+    { path: 'detail', component: MediDetailDetailsComponent },
+    { path: 'reviews', component: MediDetailReviewsComponent }
+  ]
+},
   {
     path: '', component: MediListComponent
   },
@@ -44,11 +48,12 @@ const appRoutes: Routes = [
     MediListComponent,
     MediDetailComponent,
     PagenotfoundComponent,
-    UserReviewComponent
+    MediDetailReviewsComponent,
+    MediDetailDetailsComponent
+
   ],
   imports: [
     BrowserModule,
-    StarRatingModule.forRoot(),
      RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
@@ -56,8 +61,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatGridListModule,
-    MatCardModule
+ 
+    ModalModule.forRoot()
   ],
   providers: [ CustomerService, MedicineService],
   bootstrap: [AppComponent]

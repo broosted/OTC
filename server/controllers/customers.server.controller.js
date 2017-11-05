@@ -23,6 +23,8 @@ exports.list = function(req, res, next) {
     });
 };
 
+
+
 exports.read = function(req, res) {
     res.json(req.customer);
 };
