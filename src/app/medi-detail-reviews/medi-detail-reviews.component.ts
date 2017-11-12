@@ -61,8 +61,8 @@ export class MediDetailReviewsComponent implements OnInit {
 
   addReview(form: any){
     form.customer_rating = this.item;
-    this.list$  =  this.service.create(form);
-    console.log(this.list$);
+    this.list$  =  this.service.create(form, this.id);
+    
     this.list$.subscribe();
   }
 

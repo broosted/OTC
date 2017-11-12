@@ -9,6 +9,8 @@ import { Medicines } from '../medi-list/medi-item.model';
 @Injectable()
 export class CustomerService {
 
+    private id: string;
+
     constructor(private http: HttpClient) {
 
     }
@@ -21,11 +23,15 @@ export class CustomerService {
         return this.http.get<Customer[]>('api/medicines/'+medid+'/customers');
     }
     
-    create( customer: Customer): Observable<any> {
-         this.http.post<Customer>('api/customers', customer).subscribe();
+    create( customer: Customer, medId: string): Observable<any> {
         
-         return this.list();
-    }
+        let cust =  this.http.post<Customer>('api/customers', customer).toArray();
+
+        console.log(cust);
+        this.http.post<Customer>('api/medicines/'+ medId +'/customers/'+ this.id, customer);
+         return this.custbelongtoMed(medId);
+}
+
     update( customer: Customer): Observable<any> {
         this.http.put<Customer>('api/customers/' + customer.customer_id, {body: customer}).subscribe();
        

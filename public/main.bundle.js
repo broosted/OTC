@@ -75,20 +75,19 @@ AppComponent = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rating_rating_component__ = __webpack_require__("../../../../../src/app/rating/rating.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__medi_list_medi_list_component__ = __webpack_require__("../../../../../src/app/medi-list/medi-list.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pagenotfound_pagenotfound_component__ = __webpack_require__("../../../../../src/app/pagenotfound/pagenotfound.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__medi_detail_medi_detail_component__ = __webpack_require__("../../../../../src/app/medi-detail/medi-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__exposed_services_customers_service__ = __webpack_require__("../../../../../src/app/exposed-services/customers.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__exposed_services_medicines_service__ = __webpack_require__("../../../../../src/app/exposed-services/medicines.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_ngx_bootstrap_modal__ = __webpack_require__("../../../../ngx-bootstrap/modal/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__medi_detail_details_medi_detail_details_component__ = __webpack_require__("../../../../../src/app/medi-detail-details/medi-detail-details.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__medi_detail_reviews_medi_detail_reviews_component__ = __webpack_require__("../../../../../src/app/medi-detail-reviews/medi-detail-reviews.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rating_rating_component__ = __webpack_require__("../../../../../src/app/rating/rating.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__medi_list_medi_list_component__ = __webpack_require__("../../../../../src/app/medi-list/medi-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pagenotfound_pagenotfound_component__ = __webpack_require__("../../../../../src/app/pagenotfound/pagenotfound.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__medi_detail_medi_detail_component__ = __webpack_require__("../../../../../src/app/medi-detail/medi-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__exposed_services_customers_service__ = __webpack_require__("../../../../../src/app/exposed-services/customers.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__exposed_services_medicines_service__ = __webpack_require__("../../../../../src/app/exposed-services/medicines.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_ngx_bootstrap_modal__ = __webpack_require__("../../../../ngx-bootstrap/modal/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__medi_detail_details_medi_detail_details_component__ = __webpack_require__("../../../../../src/app/medi-detail-details/medi-detail-details.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__medi_detail_reviews_medi_detail_reviews_component__ = __webpack_require__("../../../../../src/app/medi-detail-reviews/medi-detail-reviews.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -111,17 +110,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-
 var appRoutes = [
     //{ path: 'medi-detail', component: MediDetailComponent },
-    { path: 'medi-detail/:id', component: __WEBPACK_IMPORTED_MODULE_8__medi_detail_medi_detail_component__["a" /* MediDetailComponent */] },
-    { path: 'medi-detail/:id/detail', component: __WEBPACK_IMPORTED_MODULE_14__medi_detail_details_medi_detail_details_component__["a" /* MediDetailDetailsComponent */] },
-    { path: 'medi-detail/:id/reviews', component: __WEBPACK_IMPORTED_MODULE_15__medi_detail_reviews_medi_detail_reviews_component__["a" /* MediDetailReviewsComponent */] },
-    {
-        path: '', component: __WEBPACK_IMPORTED_MODULE_6__medi_list_medi_list_component__["a" /* MediListComponent */]
+    { path: 'medi-detail/:id', component: __WEBPACK_IMPORTED_MODULE_7__medi_detail_medi_detail_component__["a" /* MediDetailComponent */],
+        children: [
+            { path: '', redirectTo: 'reviews', pathMatch: 'full' },
+            { path: 'detail', component: __WEBPACK_IMPORTED_MODULE_13__medi_detail_details_medi_detail_details_component__["a" /* MediDetailDetailsComponent */] },
+            { path: 'reviews', component: __WEBPACK_IMPORTED_MODULE_14__medi_detail_reviews_medi_detail_reviews_component__["a" /* MediDetailReviewsComponent */] }
+        ]
     },
-    { path: '**', component: __WEBPACK_IMPORTED_MODULE_7__pagenotfound_pagenotfound_component__["a" /* PagenotfoundComponent */] }
+    {
+        path: '', component: __WEBPACK_IMPORTED_MODULE_5__medi_list_medi_list_component__["a" /* MediListComponent */]
+    },
+    { path: '**', component: __WEBPACK_IMPORTED_MODULE_6__pagenotfound_pagenotfound_component__["a" /* PagenotfoundComponent */] }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -131,27 +132,25 @@ var AppModule = (function () {
 AppModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_4__rating_rating_component__["a" /* RatingComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__medi_list_medi_list_component__["a" /* MediListComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__medi_detail_medi_detail_component__["a" /* MediDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__pagenotfound_pagenotfound_component__["a" /* PagenotfoundComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__medi_detail_reviews_medi_detail_reviews_component__["a" /* MediDetailReviewsComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__medi_detail_details_medi_detail_details_component__["a" /* MediDetailDetailsComponent */]
+            __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_3__rating_rating_component__["a" /* RatingComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__medi_list_medi_list_component__["a" /* MediListComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__medi_detail_medi_detail_component__["a" /* MediDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__pagenotfound_pagenotfound_component__["a" /* PagenotfoundComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__medi_detail_reviews_medi_detail_reviews_component__["a" /* MediDetailReviewsComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__medi_detail_details_medi_detail_details_component__["a" /* MediDetailDetailsComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* RouterModule */].forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
+            __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* RouterModule */].forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
             ),
-            __WEBPACK_IMPORTED_MODULE_9__angular_common_http__["a" /* HttpClientModule */],
-            __WEBPACK_IMPORTED_MODULE_10__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_10__angular_forms__["b" /* ReactiveFormsModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["a" /* MatGridListModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatCardModule */],
-            __WEBPACK_IMPORTED_MODULE_13_ngx_bootstrap_modal__["a" /* ModalModule */].forRoot()
+            __WEBPACK_IMPORTED_MODULE_8__angular_common_http__["a" /* HttpClientModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_forms__["b" /* ReactiveFormsModule */],
+            __WEBPACK_IMPORTED_MODULE_12_ngx_bootstrap_modal__["a" /* ModalModule */].forRoot()
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_11__exposed_services_customers_service__["a" /* CustomerService */], __WEBPACK_IMPORTED_MODULE_12__exposed_services_medicines_service__["a" /* MedicineService */]],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_10__exposed_services_customers_service__["a" /* CustomerService */], __WEBPACK_IMPORTED_MODULE_11__exposed_services_medicines_service__["a" /* MedicineService */]],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -187,9 +186,11 @@ var CustomerService = (function () {
     CustomerService.prototype.custbelongtoMed = function (medid) {
         return this.http.get('api/medicines/' + medid + '/customers');
     };
-    CustomerService.prototype.create = function (customer) {
-        this.http.post('api/customers', customer).subscribe();
-        return this.list();
+    CustomerService.prototype.create = function (customer, medId) {
+        var cust = this.http.post('api/customers', customer).toArray();
+        console.log(cust);
+        this.http.post('api/medicines/' + medId + '/customers/' + this.id, customer);
+        return this.custbelongtoMed(medId);
     };
     CustomerService.prototype.update = function (customer) {
         this.http.put('api/customers/' + customer.customer_id, { body: customer }).subscribe();
@@ -349,7 +350,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/medi-detail-details/medi-detail-details.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  medi-detail-details works!\n</p>\n"
+module.exports = "<br>\n<p>\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi corrupti maxime aut ab consequuntur, saepe asperiores obcaecati maiores hic doloribus minima voluptatibus fugiat exercitationem qui tempora facilis dolorem perspiciatis fuga!\n</p>\n<p>\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi corrupti maxime aut ab consequuntur, saepe asperiores obcaecati maiores hic doloribus minima voluptatibus fugiat exercitationem qui tempora facilis dolorem perspiciatis fuga!\n</p>\n<p>\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi corrupti maxime aut ab consequuntur, saepe asperiores obcaecati maiores hic doloribus minima voluptatibus fugiat exercitationem qui tempora facilis dolorem perspiciatis fuga!\n</p>\n<p>\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi corrupti maxime aut ab consequuntur, saepe asperiores obcaecati maiores hic doloribus minima voluptatibus fugiat exercitationem qui tempora facilis dolorem perspiciatis fuga!\n</p>\n<p>\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi corrupti maxime aut ab consequuntur, saepe asperiores obcaecati maiores hic doloribus minima voluptatibus fugiat exercitationem qui tempora facilis dolorem perspiciatis fuga!\n</p>\n<p>\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi corrupti maxime aut ab consequuntur, saepe asperiores obcaecati maiores hic doloribus minima voluptatibus fugiat exercitationem qui tempora facilis dolorem perspiciatis fuga!\n</p>"
 
 /***/ }),
 
@@ -397,7 +398,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".modal-body {\n    max-height: calc(100vh - 210px);\n    overflow-y: auto;\n}\n\n.ion-edit {\n    font-size: 26px;\n    cursor: pointer;\n}\n\n.ion-trash-a {\n    font-size: 30px;\n    cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -410,7 +411,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/medi-detail-reviews/medi-detail-reviews.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  medi-detail-reviews works!\n</p>\n"
+module.exports = "<br>\n<h3>User Reviews:\n    <a onclick=\"document.getElementById('revId').style.display='block'\" (click)=\"resetForm()\" class=\"btn btn-info\">Post a Review</a>\n</h3>\n<br>\n\n<div id=\"revId\" class=\"modal\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\">\n                <h4 class=\"modal-title\">Post a Review</h4>\n            </div>\n\n            <form class=\"form-horizontal\" [formGroup]=\"myReviewForm\" (ngSubmit)=\"addReview(myReviewForm.value)\">\n                <div class=\"modal-body\">\n\n                    <fieldset>\n                        <div class=\"form-group\">\n                            <label for=\"inputName\" class=\"col-lg-2 control-label\">Name</label>\n                            <div class=\"col-lg-10\">\n                                <input type=\"text\" class=\"form-control\" id=\"inputName\" placeholder=\"Name\" formControlName=\"customer_name\">\n                            </div>\n                        </div>\n                        <div class=\"form-group\">\n                            <label for=\"inputRating\" class=\"col-lg-2 control-label\">Rating</label>\n                            <div class=\"col-lg-10\">\n                                <app-rating [readOnly]=\"false\" (ratingValue)=\"indexValue($event)\"></app-rating>\n                            </div>\n                        </div>\n                        <div class=\"form-group\">\n                            <label for=\"revArea\" class=\"col-lg-2 control-label\">Review</label>\n                            <div class=\"col-lg-10\">\n                                <textarea class=\"form-control\" rows=\"4\" id=\"revArea\" formControlName=\"customer_review\"></textarea>\n                            </div>\n                        </div>\n\n                    </fieldset>\n\n\n\n                </div>\n                <div class=\"modal-footer\">\n                    <div class=\"form-horizontal\">\n\n                        <button type=\"reset\" class=\"btn btn-default\" data-dismiss=\"modal\" aria-hidden=\"true\" onclick=\"document.getElementById('revId').style.display='none'\" (click)=\"resetForm()\">Cancel</button>\n                        <button type=\"submit\" class=\"btn btn-primary\" data-dismiss=\"modal\" aria-hidden=\"true\" onclick=\"document.getElementById('revId').style.display='none'\">Submit</button>\n\n                    </div>\n                </div>\n            </form>\n\n        </div>\n    </div>\n</div>\n\n\n\n<ul class=\"list-group\" *ngIf=\"list$ | async as list\">\n    <li class=\"list-group-item well\" *ngFor=\"let item of list; let num = index\">\n        <h5>By {{item.customer_name}} Updated 2010-09-30</h5>\n        <app-rating [readOnly]=\"true\" index=\"{{item.customer_rating}}\"></app-rating>\n        <p>{{item.customer_review}}</p>\n        <div style=\"text-align:end;letter-spacing:8px\">\n            <span class=\"ion-edit\" onclick=\"document.getElementById('revEditId').style.display='block'\" (click)=\"editDisplay(item)\"></span>\n            <span class=\"ion-trash-a\" (click)=\"removeReview(item._id)\"></span>\n        </div>\n    </li>\n\n</ul>\n\n\n\n<div id=\"revEditId\" class=\"modal\">\n    <div class=\"modal-dialog\" role=\"document\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\">\n                <h4 class=\"modal-title\">Post a Review</h4>\n            </div>\n\n            <form class=\"form-horizontal\" [formGroup]=\"myReviewForm\" (ngSubmit)=\"editReview(myReviewForm.value)\">\n                <div class=\"modal-body\">\n\n                    <fieldset>\n                        <div class=\"form-group\">\n                            <label for=\"inputName\" class=\"col-lg-2 control-label\">Name</label>\n                            <div class=\"col-lg-10\">\n                                <input type=\"text\" class=\"form-control\" id=\"inputName\" placeholder=\"Name\" formControlName=\"customer_name\">\n                            </div>\n                        </div>\n                        <div class=\"form-group\">\n                            <label for=\"inputRating\" class=\"col-lg-2 control-label\">Rating</label>\n                            <div class=\"col-lg-10\">\n                                <app-rating [readOnly]=\"false\" (ratingValue)=\"indexValue($event)\" index=\"{{editItem.customer_rating}}\"></app-rating>\n                            </div>\n                        </div>\n                        <div class=\"form-group\">\n                            <label for=\"revArea\" class=\"col-lg-2 control-label\">Review</label>\n                            <div class=\"col-lg-10\">\n                                <textarea class=\"form-control\" rows=\"4\" id=\"revArea\" formControlName=\"customer_review\"></textarea>\n                            </div>\n                        </div>\n\n                    </fieldset>\n\n\n\n                </div>\n                <div class=\"modal-footer\">\n                    <div class=\"form-horizontal\">\n\n                        <button type=\"reset\" class=\"btn btn-default\" data-dismiss=\"modal\" aria-hidden=\"true\" onclick=\"document.getElementById('revEditId').style.display='none'\" (click)=\"resetForm()\">Cancel</button>\n                        <button type=\"submit\" class=\"btn btn-primary\" data-dismiss=\"modal\" aria-hidden=\"true\" onclick=\"document.getElementById('revEditId').style.display='none'\" (click)=\"editReview()\">Submit</button>\n\n                    </div>\n                </div>\n            </form>\n\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -419,6 +420,10 @@ module.exports = "<p>\n  medi-detail-reviews works!\n</p>\n"
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__exposed_services_customers_service__ = __webpack_require__("../../../../../src/app/exposed-services/customers.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__medi_list_medi_customer_model__ = __webpack_require__("../../../../../src/app/medi-list/medi-customer.model.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MediDetailReviewsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -430,10 +435,60 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var MediDetailReviewsComponent = (function () {
-    function MediDetailReviewsComponent() {
+    function MediDetailReviewsComponent(fb, service, route, router) {
+        this.fb = fb;
+        this.service = service;
+        this.route = route;
+        this.router = router;
+        this.readOnly = false;
+        this.myReviewForm = fb.group({
+            customer_name: '',
+            customer_rating: '',
+            customer_review: ''
+        });
     }
     MediDetailReviewsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.parent.params.subscribe(function (params) {
+            _this.id = params['id'];
+        });
+        this.list$ = this.service.custbelongtoMed(this.id);
+        this.readOnly = true;
+        //this.list$ = this.service.list();
+        this.editItem = new __WEBPACK_IMPORTED_MODULE_4__medi_list_medi_customer_model__["a" /* Customer */]('', 0, '');
+    };
+    MediDetailReviewsComponent.prototype.indexValue = function (event) {
+        this.item = event;
+    };
+    MediDetailReviewsComponent.prototype.addReview = function (form) {
+        form.customer_rating = this.item;
+        this.list$ = this.service.create(form, this.id);
+        this.list$.subscribe();
+    };
+    MediDetailReviewsComponent.prototype.editReview = function (form) {
+        form.customer_rating = this.editItem;
+        this.list$ = this.service.update(form);
+        this.list$.subscribe();
+    };
+    MediDetailReviewsComponent.prototype.editDisplay = function (item) {
+        this.myReviewForm.setValue({
+            customer_name: item.customer_name,
+            customer_rating: item.customer_rating,
+            customer_review: item.customer_review
+        });
+        this.editItem = item;
+    };
+    MediDetailReviewsComponent.prototype.removeReview = function (id) {
+        this.list$ = this.service.delete(id);
+        this.list$.subscribe();
+    };
+    MediDetailReviewsComponent.prototype.resetForm = function () {
+        this.myReviewForm.reset();
     };
     return MediDetailReviewsComponent;
 }());
@@ -443,9 +498,10 @@ MediDetailReviewsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/medi-detail-reviews/medi-detail-reviews.component.html"),
         styles: [__webpack_require__("../../../../../src/app/medi-detail-reviews/medi-detail-reviews.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormBuilder */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__exposed_services_customers_service__["a" /* CustomerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__exposed_services_customers_service__["a" /* CustomerService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _d || Object])
 ], MediDetailReviewsComponent);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=medi-detail-reviews.component.js.map
 
 /***/ }),
@@ -458,7 +514,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "img {\n    max-width: 400px;\n}\n\n.modal-body {\n    max-height: calc(100vh - 210px);\n    overflow-y: auto;\n}\n\n.ion-edit {\n    font-size: 26px;\n    cursor: pointer;\n}\n\n.ion-trash-a {\n    font-size: 30px;\n    cursor: pointer;\n}", ""]);
+exports.push([module.i, "img {\n    max-width: 400px;\n}", ""]);
 
 // exports
 
@@ -471,7 +527,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/medi-detail/medi-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div id=\"myTabContent\" class=\"tab-content\">\n    <div class=\"tab-pane fade in active show\" id=\"home\">\n        <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.\n            Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>\n    </div>\n    <div class=\"tab-pane fade\" id=\"profile\">\n        <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress,\n            commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>\n    </div>\n\n</div> -->\n\n\n<div class=\"container\">\n\n\n\n\n    <div class=\"media\" *ngIf=\"medicine$ | async as medicine\">\n        <div class=\"media-left\">\n            <a href=\"#\">\n                <img class=\"media-object\" src=\"{{medicine.medi_img_url}}\">\n            </a>\n        </div>\n        <div class=\"media-body\">\n            <h4 class=\"media-heading\">Media heading</h4>\n            <p>{{medicine.medi_description}}</p>\n        </div>\n\n    </div>\n\n\n    <ul class=\"nav nav-tabs\">\n        <li class=\"nav-item\"> <a class=\"nav-link active\" data-toggle=\"tab\" routerLink=\"/medi-detail\">Detail</a></li>\n        <li class=\"nav-item\"> <a class=\"nav-link\" data-toggle=\"tab\" routerLink=\"/medi-detail\">Reviews</a></li>\n    </ul>\n\n\n    <br>\n    <h3>User Reviews:\n        <a onclick=\"document.getElementById('revId').style.display='block'\" (click)=\"resetForm()\" class=\"btn btn-info\">Post a Review</a>\n    </h3>\n    <br>\n\n    <div id=\"revId\" class=\"modal\">\n        <div class=\"modal-dialog\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <h4 class=\"modal-title\">Post a Review</h4>\n                </div>\n\n                <form class=\"form-horizontal\" [formGroup]=\"myReviewForm\" (ngSubmit)=\"addReview(myReviewForm.value)\">\n                    <div class=\"modal-body\">\n\n                        <fieldset>\n                            <div class=\"form-group\">\n                                <label for=\"inputName\" class=\"col-lg-2 control-label\">Name</label>\n                                <div class=\"col-lg-10\">\n                                    <input type=\"text\" class=\"form-control\" id=\"inputName\" placeholder=\"Name\" formControlName=\"customer_name\">\n                                </div>\n                            </div>\n                            <div class=\"form-group\">\n                                <label for=\"inputRating\" class=\"col-lg-2 control-label\">Rating</label>\n                                <div class=\"col-lg-10\">\n                                    <app-rating [readOnly]=\"false\" (ratingValue)=\"indexValue($event)\"></app-rating>\n                                </div>\n                            </div>\n                            <div class=\"form-group\">\n                                <label for=\"revArea\" class=\"col-lg-2 control-label\">Review</label>\n                                <div class=\"col-lg-10\">\n                                    <textarea class=\"form-control\" rows=\"4\" id=\"revArea\" formControlName=\"customer_review\"></textarea>\n                                </div>\n                            </div>\n\n                        </fieldset>\n\n\n\n                    </div>\n                    <div class=\"modal-footer\">\n                        <div class=\"form-group\">\n                            <div class=\"col-lg-10 col-lg-offset-2\">\n                                <button type=\"reset\" class=\"btn btn-default\" data-dismiss=\"modal\" aria-hidden=\"true\" onclick=\"document.getElementById('revId').style.display='none'\" (click)=\"resetForm()\">Cancel</button>\n                                <button type=\"submit\" class=\"btn btn-primary\" data-dismiss=\"modal\" aria-hidden=\"true\" onclick=\"document.getElementById('revId').style.display='none'\">Submit</button>\n                            </div>\n                        </div>\n                    </div>\n                </form>\n\n            </div>\n        </div>\n    </div>\n\n\n\n    <ul class=\"list-group\" *ngIf=\"list$ | async as list\">\n        <li class=\"list-group-item well\" *ngFor=\"let item of list; let num = index\">\n            <h5>By {{item.customer_name}} Updated 2010-09-30</h5>\n            <app-rating [readOnly]=\"true\" index=\"{{item.customer_rating}}\"></app-rating>\n            <p>{{item.customer_review}}</p>\n            <div style=\"text-align:end;letter-spacing:8px\">\n                <span class=\"ion-edit\" onclick=\"document.getElementById('revEditId').style.display='block'\" (click)=\"editDisplay(item)\"></span>\n                <span class=\"ion-trash-a\" (click)=\"removeReview(item._id)\"></span>\n            </div>\n        </li>\n\n    </ul>\n\n\n\n    <div id=\"revEditId\" class=\"modal\">\n        <div class=\"modal-dialog\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <h4 class=\"modal-title\">Post a Review</h4>\n                </div>\n\n                <form class=\"form-horizontal\" [formGroup]=\"myReviewForm\" (ngSubmit)=\"editReview(myReviewForm.value)\">\n                    <div class=\"modal-body\">\n\n                        <fieldset>\n                            <div class=\"form-group\">\n                                <label for=\"inputName\" class=\"col-lg-2 control-label\">Name</label>\n                                <div class=\"col-lg-10\">\n                                    <input type=\"text\" class=\"form-control\" id=\"inputName\" placeholder=\"Name\" formControlName=\"customer_name\">\n                                </div>\n                            </div>\n                            <div class=\"form-group\">\n                                <label for=\"inputRating\" class=\"col-lg-2 control-label\">Rating</label>\n                                <div class=\"col-lg-10\">\n                                    <app-rating [readOnly]=\"false\" (ratingValue)=\"indexValue($event)\" index=\"{{editItem.customer_rating}}\"></app-rating>\n                                </div>\n                            </div>\n                            <div class=\"form-group\">\n                                <label for=\"revArea\" class=\"col-lg-2 control-label\">Review</label>\n                                <div class=\"col-lg-10\">\n                                    <textarea class=\"form-control\" rows=\"4\" id=\"revArea\" formControlName=\"customer_review\"></textarea>\n                                </div>\n                            </div>\n\n                        </fieldset>\n\n\n\n                    </div>\n                    <div class=\"modal-footer\">\n                        <div class=\"form-group\">\n                            <div class=\"col-lg-10 col-lg-offset-2\">\n                                <button type=\"reset\" class=\"btn btn-default\" data-dismiss=\"modal\" aria-hidden=\"true\" onclick=\"document.getElementById('revEditId').style.display='none'\" (click)=\"resetForm()\">Cancel</button>\n                                <button type=\"submit\" class=\"btn btn-primary\" data-dismiss=\"modal\" aria-hidden=\"true\" onclick=\"document.getElementById('revEditId').style.display='none'\" (click)=\"editReview()\">Submit</button>\n                            </div>\n                        </div>\n                    </div>\n                </form>\n\n            </div>\n        </div>\n    </div>\n\n\n\n\n</div>"
+module.exports = "<div class=\"container\" *ngIf=\"medicine$ | async as medicine\">\n\n\n    <div class=\"media\">\n        <div class=\"media-left\">\n            <a href=\"#\">\n                <img class=\"media-object\" src=\"{{medicine.medi_img_url}}\">\n            </a>\n        </div>\n        <div class=\"media-body\">\n            <h4 class=\"media-heading\">Media heading</h4>\n            <p>{{medicine.medi_description}}</p>\n        </div>\n\n    </div>\n\n\n    <ul class=\"nav nav-tabs\">\n        <li class=\"nav-item\"> <a class=\"nav-link\" data-toggle=\"tab\" routerLink=\"detail\" routerLinkActive=\"active\">Detail</a></li>\n        <li class=\"nav-item\"> <a class=\"nav-link\" data-toggle=\"tab\" routerLink=\"reviews\" routerLinkActive=\"active\">Reviews</a></li>\n    </ul>\n\n\n    <router-outlet></router-outlet>\n\n</div>"
 
 /***/ }),
 
@@ -482,11 +538,8 @@ module.exports = "<!-- <div id=\"myTabContent\" class=\"tab-content\">\n    <div
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__exposed_services_medicines_service__ = __webpack_require__("../../../../../src/app/exposed-services/medicines.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__exposed_services_customers_service__ = __webpack_require__("../../../../../src/app/exposed-services/customers.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__medi_list_medi_customer_model__ = __webpack_require__("../../../../../src/app/medi-list/medi-customer.model.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_switchMap__ = __webpack_require__("../../../../rxjs/add/operator/switchMap.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_switchMap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__ = __webpack_require__("../../../../rxjs/add/operator/switchMap.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MediDetailComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -501,61 +554,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
 var MediDetailComponent = (function () {
-    function MediDetailComponent(fb, service, route, router, medService) {
-        this.fb = fb;
-        this.service = service;
+    function MediDetailComponent(route, router, medService) {
         this.route = route;
         this.router = router;
         this.medService = medService;
-        this.readOnly = false;
-        this.myReviewForm = fb.group({
-            customer_name: '',
-            customer_rating: '',
-            customer_review: ''
-        });
     }
     MediDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.medicine$ = this.route.paramMap.switchMap(function (params) {
-            _this.list$ = _this.service.custbelongtoMed(params.get('id'));
             return _this.medService.findById(params.get('id'));
         });
-        this.readOnly = true;
-        //this.list$ = this.service.list();
-        this.editItem = new __WEBPACK_IMPORTED_MODULE_5__medi_list_medi_customer_model__["a" /* Customer */]('', 0, '');
-    };
-    MediDetailComponent.prototype.indexValue = function (event) {
-        this.item = event;
-    };
-    MediDetailComponent.prototype.addReview = function (form) {
-        form.customer_rating = this.item;
-        this.list$ = this.service.create(form);
-        console.log(this.list$);
-        this.list$.subscribe();
-    };
-    MediDetailComponent.prototype.editReview = function (form) {
-        form.customer_rating = this.editItem;
-        this.list$ = this.service.update(form);
-        this.list$.subscribe();
-    };
-    MediDetailComponent.prototype.editDisplay = function (item) {
-        this.myReviewForm.setValue({
-            customer_name: item.customer_name,
-            customer_rating: item.customer_rating,
-            customer_review: item.customer_review
-        });
-        this.editItem = item;
-    };
-    MediDetailComponent.prototype.removeReview = function (id) {
-        this.list$ = this.service.delete(id);
-        this.list$.subscribe();
-    };
-    MediDetailComponent.prototype.resetForm = function () {
-        this.myReviewForm.reset();
     };
     return MediDetailComponent;
 }());
@@ -565,10 +574,10 @@ MediDetailComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/medi-detail/medi-detail.component.html"),
         styles: [__webpack_require__("../../../../../src/app/medi-detail/medi-detail.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["j" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["j" /* FormBuilder */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__exposed_services_customers_service__["a" /* CustomerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__exposed_services_customers_service__["a" /* CustomerService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__exposed_services_medicines_service__["a" /* MedicineService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__exposed_services_medicines_service__["a" /* MedicineService */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__exposed_services_medicines_service__["a" /* MedicineService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__exposed_services_medicines_service__["a" /* MedicineService */]) === "function" && _c || Object])
 ], MediDetailComponent);
 
-var _a, _b, _c, _d, _e;
+var _a, _b, _c;
 //# sourceMappingURL=medi-detail.component.js.map
 
 /***/ }),

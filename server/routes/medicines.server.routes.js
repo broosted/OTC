@@ -14,9 +14,13 @@ module.exports = function(app) {
         .delete(medicines.delete);
 
     app.route('/api/medicines/:medId/customers')
-        .get(medicines.readCs);
+        .get(medicines.listByMedId);
+
+    app.route('/api/medicines/:mediId/customers/:customerId')
+        .post(medicines.createRef)
+
 
     app.param('medicineId', medicines.medicineByID);
-    app.param('medId', medicines.listByMedId);
+
 
 };
