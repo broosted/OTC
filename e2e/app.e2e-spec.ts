@@ -1,10 +1,10 @@
-import { ProjectBetaPage } from './app.po';
+import { WebAppPage } from './app.po';
 
-describe('project-beta App', () => {
-  let page: ProjectBetaPage;
+describe('web-app App', () => {
+  let page: WebAppPage;
 
   beforeEach(() => {
-    page = new ProjectBetaPage();
+    page = new WebAppPage();
   });
 
   it('should display welcome message', () => {
