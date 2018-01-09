@@ -33,6 +33,7 @@
         "mongoose": "4.11.7",
         "mongoose-easy-auto-increment": "^1.0.1",
         "ngx-bootstrap": "^2.0.0-rc.0",
+        "popper.js": "^1.12.9",
         "redux": "^3.7.2",
         "redux-logger": "^3.0.6",
         "rxjs": "^5.5.6",

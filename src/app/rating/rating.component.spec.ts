@@ -19,7 +19,15 @@ describe('RatingComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should be created', () => {
+  it('Rating should be created', () => {
     expect(component).toBeTruthy();
   });
+
+  //test input
+  //test output
+  //test generate function
+  //test ngOnChanges
+  //test Cleanup
+  //test indexClick
+
 });

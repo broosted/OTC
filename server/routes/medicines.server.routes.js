@@ -2,9 +2,6 @@ const medicines = require('../controllers/medicines.server.controller');
 
 module.exports = function(app) {
 
-
-
-
     app.route('/api/medicines')
         .post(medicines.create)
         .get(medicines.list);

@@ -16,22 +16,23 @@ exports.create = function(req, res, next) {
 exports.createRef = function(req, res, next) {
 
 
-    Customer.findOne({ _id: req.param('customerId') },
+    Customer.findOne({ _id: req.params.customerId },
         (err, customer) => {
             if (err) {
                 return next(err);
             } else {
 
-                // to push new values to existing document we use $push and the object name and value
+                console.log(req.params.customerId)
+                    // to push new values to existing document we use $push and the object name and value
                 Medicine.findOneAndUpdate({ _id: req.param('mediId') }, { $push: { "customers": customer } }, { 'new': true },
                     (err, medicine) => {
-                        console.log(customer);
+
                         if (err) {
                             console.log('getting error');
                             return next(err);
                         } else {
-                            console.log(medicine);
-                            res.status(200).json(medicine);
+                            
+                            res.status(200).json(customer);
                         }
                     });
 
@@ -54,17 +55,24 @@ exports.list = function(req, res, next) {
 };
 
 exports.listByMedId = function(req, res, next) {
-    Medicine.findOne({ _id: req.param('medId') }).populate('customers')
+
+    Medicine.findOne({ _id: req.params.medId })
         .exec((err, medicine) => {
             if (err) {
                 return next(err);
             } else {
-
-                res.status(200).json(medicine.customers);
-
+                Customer.find().where('_id').in(medicine.customers).exec((err, customers) => {
+                    if (err) {
+                        return next(err);
+                    } else {
+                        res.status(200).json(customers);
+                    }
+                });
 
             }
         });
+
+
 
 };
 

@@ -18,7 +18,7 @@
 
     <div class="card-columns">
 
-        <div class="card border-light" style="width:20rem;" *ngFor="let item of list$ | async; let num = index">
+        <div class="card border-light" style="width:20rem;" *ngFor="let item of list; let num = index">
             <img class="card-img-top" src="{{item.medi_img_url}}" alt="Card image cap">
             <div class="card-body">
                 <span class="post-title"><b>Make a Image Blur Effects With</b><br />

@@ -19,7 +19,7 @@ describe('MediDetailDetailsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should be created', () => {
+  it('MediDetailDetailsComponent MediDetailDetailsComponent should be created', () => {
     expect(component).toBeTruthy();
   });
 });

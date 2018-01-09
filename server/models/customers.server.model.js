@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-var sequenceGenerator = require('mongoose-sequence-plugin');
+const autoIncrement = require('mongoose-easy-auto-increment');
 
 
 const CustSchema = new Schema({
@@ -10,11 +10,6 @@ const CustSchema = new Schema({
     customer_review: String
 });
 
-CustSchema.plugin(sequenceGenerator, {
-    field: 'customer_id',
-    startAt: '69',
-    prefix: 'MNH-',
-    maxSaveRetries: 2
-});
+CustSchema.plugin(autoIncrement, { field: 'customer_id', collection: 'customers' });
 
 mongoose.model('Customer', CustSchema);

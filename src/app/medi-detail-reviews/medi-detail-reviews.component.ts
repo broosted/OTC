@@ -8,7 +8,9 @@ import { FormBuilder,FormGroup, FormControl} from '@angular/forms';
 import { CustomerService } from '../exposed-services/customers.service';
 
 import { Observable} from 'rxjs';
-import { Customer } from '../medi-list/medi-customer.model';
+import { Customer } from '../store/customers.interface';
+
+
 
 @Component({
   selector: 'app-medi-detail-reviews',
@@ -18,15 +20,17 @@ import { Customer } from '../medi-list/medi-customer.model';
 export class MediDetailReviewsComponent implements OnInit {
 
 
-  list$: Observable<Customer[]>;
+  list: Customer[];
   id: string;
   readOnly = false;
   item: number;
   myReviewForm : FormGroup;
   editItem: Customer;
+  cust: Customer;
 
-
-  constructor(private fb: FormBuilder, private service: CustomerService, private route: ActivatedRoute,
+  constructor(private fb: FormBuilder, 
+    private service: CustomerService, 
+    private route: ActivatedRoute,
     private router: Router) { 
 
     this.myReviewForm = fb.group({
@@ -35,45 +39,54 @@ export class MediDetailReviewsComponent implements OnInit {
       customer_review: ''
   
      });
+
   }
 
   ngOnInit() {
     
-     this.route.parent.params.subscribe(params => {
-    this.id = params['id'];  });
-
-    this.list$ = this.service.custbelongtoMed(this.id);
-
+     this.route.parent.paramMap.subscribe((p:any) => {
+    this.id = p.get('id');  
+  });
 
     this.readOnly = true;
-    //this.list$ = this.service.list();
-    this.editItem = new Customer('',0,'');
 
+    this.editItem = {
+      customer_id: '',
+      customer_name: '',
+      customer_rating: 0,
+      customer_review: '',
+      _id: ''
+  };
+
+  this.getReviews();
     
   }
 
-
     
-  indexValue(event){
+  indexValue(event: any){
     this.item = event;
   }
 
 
-  addReview(form: any){
-    form.customer_rating = this.item;
-    this.list$  =  this.service.create(form, this.id);
-    
-    this.list$.subscribe();
+  getReviews(): void {
+    this.service.custbelongtoMed(this.id)
+    .subscribe(customers => this.list = customers);
   }
 
-  editReview(form: any){
-    form.customer_rating = this.editItem;
-    this.list$  =  this.service.update(form);
-    this.list$.subscribe();
+  addReview(form: any){
+
+    form.customer_rating = this.item;
+
+    this.service.create(form, this.id)
+    .subscribe(customer => {
+     
+     return this.list.push(customer)
+    });
 
   }
 
   editDisplay(item: Customer){
+
     this.myReviewForm.setValue({
       customer_name: item.customer_name,
       customer_rating: item.customer_rating,
@@ -81,12 +94,34 @@ export class MediDetailReviewsComponent implements OnInit {
     });
     
     this.editItem = item;
+
+
+    this.service.findById(this.editItem._id).subscribe((customer: Customer) => this.cust = customer);
     
   }
 
+  editReview(form: any){
+
+    this.cust.customer_rating = this.item;
+    this.cust.customer_name = form.customer_name;
+    this.cust.customer_review = form.customer_review;
+
+    this.service.update(this.cust, this.editItem._id)
+    .subscribe(customer => this.list = this.list.map(el => {
+        if(el._id === customer._id){
+          return customer;
+        }else {
+          return el;
+        }
+      })
+    );
+   
+
+  }
+
   removeReview(id: string){
-    this.list$ = this.service.delete(id);
-    this.list$.subscribe();
+    this.list = this.list.filter(h => h._id !== id);
+    this.service.delete(id).subscribe();
   }
 
   resetForm(){

@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 
 
-import { Medicines } from './medi-item.model';
+import { Medicine } from '../store/medicines.interface';
 import { MedicineService } from '../exposed-services/medicines.service';
 
 @Component({
@@ -13,18 +13,23 @@ import { MedicineService } from '../exposed-services/medicines.service';
 })
 export class MediListComponent implements OnInit {
 
-  list$: Observable<Medicines[]>;
+  list: Medicine[];
   constructor(private service: MedicineService) { }
 
   ngOnInit() {
- 
-this.list$ = this.service.getAvgRating();
+  
+  this.service.getAvgRating()
+  .subscribe((value:any) => 
+  {
+    this.list = value
+  });
 }
 
 filterData(searchText: string) {
-  
-  this.list$ = this.service.filter(searchText);
- // this.service.filter(searchText).subscribe(element => console.log(element));
+
+  this.service.filter(searchText)
+  .subscribe((value:any) => this.list = value);
+ 
 }
 
 }

@@ -1,7 +1,7 @@
 import { MedicineService } from './../exposed-services/medicines.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
+import { Medicine} from '../store/medicines.interface';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -15,24 +15,33 @@ import 'rxjs/add/operator/switchMap';
 })
 export class MediDetailComponent implements OnInit {
 
-  medicine$: Observable<any>;
+  medicine: Medicine;
 
 
   constructor(private route: ActivatedRoute,
     private router: Router, private medService: MedicineService) {
-
-   
-
   }
 
   ngOnInit() {
     
-    this.medicine$ = this.route.paramMap.switchMap(
-      (params: ParamMap) =>  {
-        return this.medService.findById(params.get('id'))}
-    );
+    this.medicine = {
+      _id: '',
+      medi_id : '',
+      medi_img_url: '',
+      medi_description: '',
+      medi_avg_score: '',
+      customers: []
+    }
 
+      this.route.paramMap.subscribe(p =>  {  
+        return this.medService.findById(p.get('id'))
+        .subscribe((val:Medicine) => {  
+          
+          return this.medicine = val
+        });
+        })
       }
-    
 
+
+    
 }
