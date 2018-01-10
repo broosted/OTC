@@ -1,7 +1,4 @@
-img {
-    max-width: 400px;
-}
 
-.media {
-    margin: 2em 0;
+.container:nth-of-type(2){
+  margin: 2em 0;
 }

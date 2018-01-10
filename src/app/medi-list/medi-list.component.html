@@ -2,10 +2,11 @@
 
     <form>
 
-        <div class="input-group">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" #data>
-
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit" (click)="filterData(data.value)">Search</button>
+        <div class="form-group row">
+            <input class="form-control col-md-11 col-8" type="text" placeholder="Search" #data>
+           <div class="col-1">
+            <button class="btn btn-secondary" type="submit" (click)="filterData(data.value)">Search</button>
+          </div>
         </div>
 
 
@@ -16,9 +17,9 @@
 
 <div class="container">
 
-    <div class="card-columns">
+    <div class="row">
 
-        <div class="card border-light" style="width:20rem;" *ngFor="let item of list; let num = index">
+        <div class="card border-light col-md-4 col-sm-6 col-12" *ngFor="let item of list; let num = index">
             <img class="card-img-top" src="{{item.medi_img_url}}" alt="Card image cap">
             <div class="card-body">
                 <span class="post-title"><b>Make a Image Blur Effects With</b><br />
