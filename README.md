@@ -17,11 +17,11 @@ check package.json file for more info
 
 This application is deployed on AWS-EC2 instance using bitnami image.
 
-# to Use deploy this application on your local machine.
+# to deploy this application on your local machine.
 First you need to setup a local MongoDB DB with name otc-website
 then add two collections: medicines and customers.
 
-
+Run `npm install`
 
 ## Development server
 
