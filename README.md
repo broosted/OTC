@@ -1,28 +1,40 @@
-# ProjectBeta
+# OTC- Over The Counter Drugs web-app
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.2.
+This MEAN stack application contain the following:
+
+Angular 5,
+Express JS,
+Mongoose,
+Node JS production server,
+Webpack - Dev server,
+Webpack,
+Jasmine for testing,
+RxJS,
+Angular-Redux,
+Bootstrap
+
+check package.json file for more info
+
+This application is deployed on AWS-EC2 instance using bitnami image.
+
+# to Use deploy this application on your local machine.
+First you need to setup a local MongoDB DB with name otc-website
+then add two collections: medicines and customers.
+
+
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm run start`
 
-## Code scaffolding
+## Build (use it only when you want to run the node js production server)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `npm build`
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm test`
 
-## Running end-to-end tests
+## Production server 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Run after build `npm run start:prod`
