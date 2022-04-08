@@ -58,7 +58,7 @@
         "karma-jasmine-html-reporter": "^1.5.4",
         "karma-sourcemap-loader": "^0.3.8",
         "karma-webpack": "^5.0.0",
-        "minimist": ">=0.2.1",
+        "minimist": ">=1.2.6",
         "null-loader": "^4.0.1",
         "raw-loader": "^4.0.2",
         "rimraf": "^3.0.2",
